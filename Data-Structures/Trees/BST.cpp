@@ -46,7 +46,13 @@ node * deleteNode(node * root, int key){
     }
 
   else {  node * temp = minValueOf(root->right);
-    return temp;}
+    //copy the inorder succesor content
+    root->key = temp->key;
+    //delete the inorder sucessor
+    root->right = deleteNode(root->right, temp->key);
+    }
+
+    return root;
   }
 }
 
